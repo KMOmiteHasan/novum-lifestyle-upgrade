@@ -36,15 +36,14 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
     }
 }
 
-
-document.addEventListener("backbutton", backKeyPressed, false);
-
-function backKeyPressed() {
-
-    videoContainer.classList.remove("full-mobile")
-    document.body.style.overflow = "auto"
-
-}
+document.onkeydown = function (evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        videoContainer.classList.remove("full-mobile")
+        document.body.style.height = "auto"
+        document.body.style.overflow = "auto"
+    }
+};
 
 
 video.addEventListener("click", function () {
@@ -55,6 +54,7 @@ video.addEventListener("click", function () {
         video.pause()
         tapToResume.style.display = "block"
         videoContainer.classList.remove("full-mobile")
+        document.body.style.height = "auto"
         document.body.style.overflow = "auto"
     }
 })
@@ -63,6 +63,7 @@ tapToResume.addEventListener("click", function () {
     video.play()
     tapToResume.style.display = "none"
     videoContainer.classList.add("full-mobile")
+    document.body.style.height = "100vh"
     document.body.style.overflow = "hidden"
 })
 
