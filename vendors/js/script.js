@@ -37,9 +37,19 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
 }
 
 
+document.addEventListener("backbutton", backKeyPressed, false);
+
+function backKeyPressed() {
+
+    videoContainer.classList.remove("full-mobile")
+    document.body.style.overflow = "auto"
+
+}
+
+
 video.addEventListener("click", function () {
-    if (videoContainer.className.contains("full-mobile")) {
-        console.log("")
+    if (videoContainer.classList.contains("full-mobile")) {
+        console.log("Click back button to escape.")
     }
     else {
         video.pause()
