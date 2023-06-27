@@ -21,7 +21,8 @@ tapToPlay.addEventListener("click", function () {
     }, 1000);
 
     videoContainer.classList.add("full-mobile")
-    firstSect.classList.add("top-space")
+    document.body.style.height = "100vh"
+    document.body.style.overflow = "hidden"
 })
 
 for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.length; n++) {
@@ -37,17 +38,22 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
 
 
 video.addEventListener("click", function () {
-    video.pause()
-    tapToResume.style.display = "block"
-    videoContainer.classList.remove("full-mobile")
-    firstSect.classList.remove("top-space")
+    if (videoContainer.className.contains("full-mobile")) {
+        console.log("")
+    }
+    else {
+        video.pause()
+        tapToResume.style.display = "block"
+        videoContainer.classList.remove("full-mobile")
+        document.body.style.overflow = "auto"
+    }
 })
 
 tapToResume.addEventListener("click", function () {
     video.play()
     tapToResume.style.display = "none"
     videoContainer.classList.add("full-mobile")
-    firstSect.classList.add("top-space")
+    document.body.style.overflow = "hidden"
 })
 
 

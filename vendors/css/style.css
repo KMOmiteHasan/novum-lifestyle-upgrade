@@ -384,6 +384,9 @@ body {
   html {
     font-size: 8px;
   }
+  /* body {
+    overflow: hidden;
+  } */
   .container {
     width: 620px;
   }
@@ -393,11 +396,12 @@ body {
   }
 
   .video-container.full-mobile {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: 9999;
   }
   .video-container.full-mobile #video-0 {
     width: 100%;
