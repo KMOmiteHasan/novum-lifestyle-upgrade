@@ -38,25 +38,6 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
 }
 
 
-document.addEventListener('deviceready', function () {
-
-
-    document.addEventListener('backbutton', function () {
-        if (videoContainer.classList.contains("full-mobile")) {
-            videoContainer.classList.remove("full-mobile")
-            document.body.style.height = "auto"
-            document.body.style.overflow = "auto"
-            return true;
-        }
-        else {
-            navigator.app.exitApp();
-        }
-
-    });
-
-}, false);
-
-
 
 document.onkeydown = function (evt) {
     evt = evt || window.event;
@@ -69,19 +50,11 @@ document.onkeydown = function (evt) {
 
 
 video.addEventListener("click", function () {
-    if (videoContainer.classList.contains("full-mobile")) {
-        console.log("Click back button to escape.")
-    }
-    else {
-        video.pause()
-        tapToResume.style.display = "block"
-        videoContainer.classList.remove("full-mobile")
-        document.body.style.height = "auto"
-        document.body.style.overflow = "auto"
-        videoLink.addEventListener("click", function (e) {
-            e.preventDefault()
-        })
-    }
+    video.pause()
+    tapToResume.style.display = "block"
+    videoContainer.classList.remove("full-mobile")
+    document.body.style.height = "auto"
+    document.body.style.overflow = "auto"
 })
 
 tapToResume.addEventListener("click", function () {
