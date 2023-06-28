@@ -42,21 +42,21 @@ document.addEventListener('deviceready', function () {
 
 
     document.addEventListener('backbutton', function () {
-        document.addEventListener('backbutton', function () {
-            if (videoContainer.classList.contains("full-mobile")) {
-                videoContainer.classList.remove("full-mobile")
-                document.body.style.height = "auto"
-                document.body.style.overflow = "auto"
-                return false;
-            }
-            else {
-                navigator.app.exitApp();
-            }
-        });
+        if (videoContainer.classList.contains("full-mobile")) {
+            videoContainer.classList.remove("full-mobile")
+            document.body.style.height = "auto"
+            document.body.style.overflow = "auto"
+            return true;
+        }
+        else {
+            navigator.app.exitApp();
+        }
 
     });
 
 }, false);
+
+
 
 document.onkeydown = function (evt) {
     evt = evt || window.event;
