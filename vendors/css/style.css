@@ -155,6 +155,7 @@ body {
 .video-container #video-0 {
   width: 100%;
   cursor: pointer;
+  outline: none;
 }
 
 #third-sect .btn-container {
@@ -383,25 +384,22 @@ body {
 @media only screen and (max-width: 768px) {
   html {
     font-size: 8px;
+    position: relative;
   }
-  /* body {
-    overflow: hidden;
-  } */
   .container {
     width: 620px;
-  }
-
-  #first-sect.top-space {
-    margin-top: 100vh;
   }
 
   .video-container.full-mobile {
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
+    display: block;
     width: 100vw;
     height: 100vh;
     z-index: 9999;
+    object-fit: cover;
   }
   .video-container.full-mobile #video-0 {
     width: 100%;

@@ -36,6 +36,20 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
     }
 }
 
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+    document.addEventListener("backbutton", onBackKeyDown, false);
+}
+
+function onBackKeyDown() {
+    videoContainer.classList.remove("full-mobile")
+    document.body.style.height = "auto"
+    document.body.style.overflow = "auto"
+}
+
 document.onkeydown = function (evt) {
     evt = evt || window.event;
     if (evt.keyCode == 27) {
