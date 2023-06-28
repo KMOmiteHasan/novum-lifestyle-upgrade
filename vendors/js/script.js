@@ -2,6 +2,7 @@ let timeoutBtn = document.getElementById("timeoutBtn")
 let timeoutText = document.getElementById("timeoutText")
 let timeoutImg = document.getElementById("timeoutImg")
 let firstSect = document.getElementById("first-sect")
+let videoLink = document.getElementById("video-link")
 let videoContainer = document.getElementById("video-container")
 let video = document.getElementById("video-0")
 let tapToResume = document.getElementById("tap-to-resume")
@@ -77,6 +78,9 @@ video.addEventListener("click", function () {
         videoContainer.classList.remove("full-mobile")
         document.body.style.height = "auto"
         document.body.style.overflow = "auto"
+        videoLink.addEventListener("click", function (e) {
+            e.preventDefault()
+        })
     }
 })
 

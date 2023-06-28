@@ -75,6 +75,11 @@ body {
   padding: 0.5rem 0 1rem;
 }
 
+#video-link {
+  text-decoration: none;
+  cursor: default;
+}
+
 .video-container {
   width: 100%;
   position: relative;
@@ -399,7 +404,7 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 9999;
-    object-fit: cover;
+    object-fit: contain;
   }
   .video-container.full-mobile #video-0 {
     width: 100%;
