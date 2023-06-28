@@ -36,19 +36,26 @@ for (var t = document.querySelectorAll("[data-delayed-fade-in]"), n = 0; n < t.l
     }
 }
 
-function onLoad() {
-    document.addEventListener("deviceready", onDeviceReady, false);
-}
 
-function onDeviceReady() {
-    document.addEventListener("backbutton", onBackKeyDown, false);
-}
+document.addEventListener('deviceready', function () {
 
-function onBackKeyDown() {
-    videoContainer.classList.remove("full-mobile")
-    document.body.style.height = "auto"
-    document.body.style.overflow = "auto"
-}
+
+    document.addEventListener('backbutton', function () {
+        document.addEventListener('backbutton', function () {
+            if (videoContainer.classList.contains("full-mobile")) {
+                videoContainer.classList.remove("full-mobile")
+                document.body.style.height = "auto"
+                document.body.style.overflow = "auto"
+                return false;
+            }
+            else {
+                navigator.app.exitApp();
+            }
+        });
+
+    });
+
+}, false);
 
 document.onkeydown = function (evt) {
     evt = evt || window.event;
